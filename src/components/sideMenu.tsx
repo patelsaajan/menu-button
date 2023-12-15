@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import ShowModal from "./showModal";
 
 const menuItems = ["Home", "Projects", "Blog", "Recipes"];
 
@@ -19,7 +20,7 @@ const menuVariant = {
 const SideMenu = () => {
   return (
     <motion.div
-      className="flex flex-col px-10 bg-orange-400 max-h-full w-2/5 rounded-r-full round"
+      className="flex flex-col px-10 bg-orange-400 max-h-full w-2/5 rounded-r-full round z-10"
       key={"sideMenu"}
       variants={menuVariant}
       initial="hidden"
@@ -27,7 +28,9 @@ const SideMenu = () => {
       exit="exit"
     >
       {menuItems.map((item) => (
-        <button className="my-3 text-4xl text-left">{item}</button>
+        <button key={item} className="my-3 text-4xl text-left">
+          {item}
+        </button>
       ))}
     </motion.div>
   );

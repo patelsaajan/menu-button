@@ -2,6 +2,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import SideMenu from "../components/sideMenu";
+import Image from "next/image";
+import ShowModal from "@/components/showModal";
 
 const buttonVariant = {
   hidden: { opacity: 0 },
@@ -12,8 +14,9 @@ export default function Home() {
   const [menuState, setMenuState] = useState(false);
   return (
     <>
+      <ShowModal show={menuState} />
       <motion.button
-        className={`m-10 p-4 border-2 rounded-3xl ${
+        className={`m-10 p-4 border-2 rounded-3xl z-50 fixed ${
           menuState ? "border-red-500" : "border-sky-500"
         }`}
         variants={buttonVariant}
@@ -25,7 +28,21 @@ export default function Home() {
       >
         {menuState ? "Close" : "Menu"}
       </motion.button>
-      <AnimatePresence>{menuState && <SideMenu />}</AnimatePresence>
+
+      <AnimatePresence>
+        <div className="flex justify-center rounded-full bg-red-500 overflow-hidden ">
+          <motion.div className="fixed">
+            <Image
+              src="/imgs/testPhoto.jpg"
+              height={300}
+              width={300}
+              alt="random image"
+            />
+          </motion.div>
+          {/* <div className="z-10 x-100">Hello</div> */}
+          {/* {menuState && <SideMenu />} */}
+        </div>
+      </AnimatePresence>
     </>
   );
 }
