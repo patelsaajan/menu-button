@@ -18,23 +18,38 @@ const menuVariant = {
   },
 };
 
-const SideMenu = () => {
+interface menuProps {
+  state: boolean;
+  setState: (currentState: boolean) => void;
+}
+
+const SideMenu = ({ state, setState }: menuProps) => {
   return (
-    <motion.div
-      className="flex flex-col px-10 bg-white h-full w-full z-10 absolute top-0  "
-      key={"sideMenu"}
-      variants={menuVariant}
-      initial="hidden"
-      animate="show"
-      exit="exit"
-    >
-      <div className="mt-40"></div>
-      {menuItems.map((item) => (
-        <button key={item} className="my-3 text-4xl text-left">
-          {item}
-        </button>
-      ))}
-    </motion.div>
+    <>
+      <motion.div
+        className="flex flex-col px-10 bg-white h-full w-full z-10 absolute top-0  "
+        key={"sideMenu"}
+        variants={menuVariant}
+        initial="hidden"
+        animate="show"
+        exit="exit"
+      >
+        <motion.button
+          className="flex absolute top-20 right-10"
+          onClick={() => {
+            setState(!state);
+          }}
+        >
+          Close
+        </motion.button>
+        <div className="mt-40"></div>
+        {menuItems.map((item) => (
+          <button key={item} className="my-3 text-4xl text-left">
+            {item}
+          </button>
+        ))}
+      </motion.div>
+    </>
   );
 };
 

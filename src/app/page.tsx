@@ -16,9 +16,10 @@ export default function Home() {
     <>
       <ShowModal show={menuState} />
       <motion.button
-        className={`m-10 p-4 border-2 rounded-3xl z-50 fixed ${
-          menuState ? "border-red-500" : "border-sky-500"
-        }`}
+        // className={`m-10 p-4 border-2 rounded-3xl z-50 fixed ${
+        //   menuState ? "border-red-500" : "border-sky-500"
+        // }`}
+        className={`m-10 p-4 border-2 rounded-3xl fixed border-sky-500`}
         variants={buttonVariant}
         initial="hidden"
         animate="show"
@@ -41,7 +42,9 @@ export default function Home() {
           </motion.div>
         </div>
       </div>
-      <AnimatePresence>{menuState && <SideMenu />}</AnimatePresence>
+      <AnimatePresence>
+        {menuState && <SideMenu state={menuState} setState={setMenuState} />}
+      </AnimatePresence>
     </>
   );
 }
