@@ -16,9 +16,6 @@ export default function Home() {
     <>
       <ShowModal show={menuState} />
       <motion.button
-        // className={`m-10 p-4 border-2 rounded-3xl z-50 fixed ${
-        //   menuState ? "border-red-500" : "border-sky-500"
-        // }`}
         className={`m-10 p-4 border-2 rounded-3xl fixed border-sky-500`}
         variants={buttonVariant}
         initial="hidden"
@@ -67,27 +64,3 @@ const subHeadingVariant = {
   hidden: { opacity: 0, y: "100vh" },
   visable: { opacity: 1, y: 0, transition: { type: "tween", duration: 3 } },
 };
-
-{
-  /* <motion.div
-        className="flex-column text-6xl  text-center mt-20"
-        variants={headingVariant}
-        initial="hidden"
-        animate="visable"
-      >
-        Hello there
-        <motion.div
-          className="flex text-4xl justify-center text-center mt-8"
-          variants={subHeadingVariant}
-        >
-          Welcome to the test server
-        </motion.div>
-        <motion.div
-          className="flex text-xl justify-center text-center mt-8"
-          variants={subHeadingVariant}
-        >
-          An example of a menu button utilising framer motion is displayed here.
-        </motion.div>
-      
-      </motion.div> */
-}
