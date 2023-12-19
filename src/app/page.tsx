@@ -29,9 +29,9 @@ export default function Home() {
         {menuState ? "Close" : "Menu"}
       </motion.button>
 
-      <AnimatePresence>
-        <div className="flex justify-center rounded-full bg-red-500 overflow-hidden ">
-          <motion.div className="fixed">
+      <div className="flex justify-center">
+        <div className="rounded-full overflow-hidden mt-20 w-72">
+          <motion.div className="">
             <Image
               src="/imgs/testPhoto.jpg"
               height={300}
@@ -39,10 +39,9 @@ export default function Home() {
               alt="random image"
             />
           </motion.div>
-          {/* <div className="z-10 x-100">Hello</div> */}
-          {/* {menuState && <SideMenu />} */}
         </div>
-      </AnimatePresence>
+      </div>
+      <AnimatePresence>{menuState && <SideMenu />}</AnimatePresence>
     </>
   );
 }

@@ -20,7 +20,7 @@ const menuVariant = {
 const SideMenu = () => {
   return (
     <motion.div
-      className="flex flex-col px-10 bg-orange-400 max-h-full w-2/5 rounded-r-full round z-10"
+      className="flex flex-col px-10 bg-orange-400 max-h-full w-80 rounded-r-full z-10 absolute top-40"
       key={"sideMenu"}
       variants={menuVariant}
       initial="hidden"
